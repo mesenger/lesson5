@@ -1,7 +1,7 @@
 node('master') {
     stage("Fetch Source Code") {
     	cleanWs()
-        git 'https://github.com/mesenger/lesson5.git'
+        git([url: 'https://github.com/mesenger/lesson5.git', branch: 'add-functions-and-tests'])
     }
     
     dir('.') {
