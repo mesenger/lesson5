@@ -1,0 +1,31 @@
+node {
+    printMessage("Pipeline Start")
+
+    stage("Fetch Source Code") {
+        git 'https://github.com/<your-profile>/Beginning-Continuous-Delivery-With-Jenkins'
+    }
+
+    dir('Lesson5/ActivityA') {
+        stage("Install Requirements") {
+            sh '<enter makefile command to install requirements>'
+        }
+
+        stage("Run Tests") {
+            sh '<enter makefile command to run tests>'
+        }
+
+        stage("Deploy") {
+            if (env.BRANCH_NAME == "master") {
+                printMessage("")
+            } else {
+                printMessage("")
+            }
+        }
+    }
+
+    printMessage("Pipeline End")
+}
+
+def printMessage(message) {
+    echo "${message}"
+}
